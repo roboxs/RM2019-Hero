@@ -104,8 +104,6 @@ void pid_reset(pid_t	*pid, float kp, float ki, float kd);
 
 /*******************************PID±äÁ¿ÉùÃ÷***************************************/
 
-extern pid_t g_dial_2006_pid_inner, g_dial_2006_pid_outer;
-extern pid_t g_dial_3510_pid_inner, g_dial_3510_pid_outer;
 
 	
 #endif

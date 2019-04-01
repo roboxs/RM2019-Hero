@@ -177,6 +177,7 @@ void DebugMon_Handler(void)
 #include <driver_dbus.h>
 #include <driver_encoder.h>
 #include <driver_control.h>
+#include <driver_dial.h>
 
 
 /*********************************************************************************************
@@ -334,17 +335,21 @@ void CAN1_RX0_IRQHandler(void)
 		case 0x207:
 		{
 			encoder_data_handler(&moto_3510_dial,&g_can1_receive_str);
-			g_dial_3510_pid_inner.measure=moto_3510_dial.speed_rpm;
-			g_dial_3510_pid_outer.measure=moto_3510_dial.current_angle;
+//			g_dial_3510_pid_inner.measure=moto_3510_dial.speed_rpm;
+//			g_dial_3510_pid_outer.measure=moto_3510_dial.current_angle;
 		}break;
 	
 		case 0x208:
 		{
 			encoder_data_handler(&moto_2006_dial,&g_can1_receive_str);
-			g_dial_2006_pid_inner.measure=moto_2006_dial.speed_rpm;
-			g_dial_2006_pid_outer.measure=moto_2006_dial.current_angle;
+			g_dial_2006_motor.moto_speed_pid.measure=moto_2006_dial.speed_rpm;
+			g_dial_2006_motor.moto_angle_pid.measure=moto_2006_dial.current_angle;
+			//2006电机圈数,最多36圈
+			g_dial_2006_motor.current_round = moto_2006_dial.round_cnt;
+			//2006电机当前的编码器值
+			g_dial_2006_motor.cuttent_ecd = moto_2006_dial.ecd;
 		}break;
-		default:;
+		default:
 			printf("No feedback speed\r\n");
 	}
 //	for(i=0;i<CAN1_ReceiveStr.DLC;i++)

@@ -50,3 +50,4 @@
 ..\obj\task_chassis.o: ..\Driver\inc\driver_control.h
 ..\obj\task_chassis.o: ..\Driver\inc\driver_dbus.h
 ..\obj\task_chassis.o: ..\TASK\inc\task_imu.h
+..\obj\task_chassis.o: D:\MDK5\ARM\ARMCC\Bin\..\include\math.h

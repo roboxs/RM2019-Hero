@@ -39,3 +39,4 @@
 ..\obj\driver_shoot.o: ..\FWLIB\inc\stm32f4xx_sai.h
 ..\obj\driver_shoot.o: ..\Driver\inc\driver_fricmotor.h
 ..\obj\driver_shoot.o: ..\Driver\inc\driver_dial.h
+..\obj\driver_shoot.o: ..\Driver\inc\driver_control.h

@@ -1,5 +1,5 @@
 Dependencies for Project 'infantry', Target 'infantry': (DO NOT MODIFY !)
-F (.\main.c)(0x5C9C8615)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5CA03E5D)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\TASK\inc\task_sysinit.h)(0x5C934AAB)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
@@ -58,16 +58,16 @@ I (..\BSP\inc\bsp_tim.h)(0x5C0E8629)
 I (..\SYSTEM\delay\delay.h)(0x5BF42C9D)
 I (..\Driver\inc\driver_imu.h)(0x5BFD5ED1)
 I (..\Driver\inc\driver_cloudmotor.h)(0x5C9348AC)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\Driver\inc\driver_fricmotor.h)(0x5C95FE05)
 I (..\DMP\driver\eMPL\inv_mpu.h)(0x577640CF)
 I (..\DMP\driver\eMPL\inv_mpu_dmp_motion_driver.h)(0x5BDDCCB0)
 I (..\TASK\inc\task_led.h)(0x5C9381EF)
 I (..\TASK\inc\task_control.h)(0x5C95C304)
 I (..\TASK\inc\task_imu.h)(0x5C764003)
-I (..\TASK\inc\task_chassis.h)(0x5C9A5CEE)
-I (..\TASK\inc\task_gimbal.h)(0x5C9C8A6B)
-F (.\stm32f4xx_it.c)(0x5C94DE0C)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\stm32f4xx_it.o --omf_browse ..\obj\stm32f4xx_it.crf --depend ..\obj\stm32f4xx_it.d)
+I (..\TASK\inc\task_chassis.h)(0x5CA05BEC)
+I (..\TASK\inc\task_gimbal.h)(0x5CA06583)
+F (.\stm32f4xx_it.c)(0x5CA05F4F)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\stm32f4xx_it.o --omf_browse ..\obj\stm32f4xx_it.crf --depend ..\obj\stm32f4xx_it.d)
 I (stm32f4xx_it.h)(0x5C1CA281)
 I (stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
@@ -122,11 +122,12 @@ I (..\FreeRTOS\include\list.h)(0x5B92F2C8)
 I (..\SYSTEM\delay\delay.h)(0x5BF42C9D)
 I (..\SYSTEM\sys\sys.h)(0x5BF429C0)
 I (..\TASK\inc\task_imu.h)(0x5C764003)
-I (..\TASK\inc\task_chassis.h)(0x5C9A5CEE)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
-I (..\TASK\inc\task_gimbal.h)(0x5C9C8A6B)
+I (..\TASK\inc\task_chassis.h)(0x5CA05BEC)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
+I (..\TASK\inc\task_gimbal.h)(0x5CA06583)
 I (..\Driver\inc\driver_dbus.h)(0x5C7B8C25)
 I (..\Driver\inc\driver_encoder.h)(0x5C7B8822)
+I (..\Driver\inc\driver_dial.h)(0x5CA03A42)
 F (.\system_stm32f4xx.c)(0x58C2D44D)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\system_stm32f4xx.o --omf_browse ..\obj\system_stm32f4xx.crf --depend ..\obj\system_stm32f4xx.d)
 I (stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
@@ -782,7 +783,7 @@ I (..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x5B92F2C9)
 I (..\FreeRTOS\include\mpu_wrappers.h)(0x5B92F2C8)
 I (..\FreeRTOS\include\task.h)(0x5B92F9BF)
 I (..\FreeRTOS\include\list.h)(0x5B92F2C8)
-F (..\BSP\src\bsp_gpio.c)(0x5C963639)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\bsp_gpio.o --omf_browse ..\obj\bsp_gpio.crf --depend ..\obj\bsp_gpio.d)
+F (..\BSP\src\bsp_gpio.c)(0x5CA0BAE1)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\bsp_gpio.o --omf_browse ..\obj\bsp_gpio.crf --depend ..\obj\bsp_gpio.d)
 I (..\BSP\inc\bsp_gpio.h)(0x5C0BDC12)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
@@ -974,7 +975,7 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
-F (..\BSP\src\bsp_tim.c)(0x5C979829)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\bsp_tim.o --omf_browse ..\obj\bsp_tim.crf --depend ..\obj\bsp_tim.d)
+F (..\BSP\src\bsp_tim.c)(0x5CA0C1E0)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\bsp_tim.o --omf_browse ..\obj\bsp_tim.crf --depend ..\obj\bsp_tim.d)
 I (..\BSP\inc\bsp_tim.h)(0x5C0E8629)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
@@ -1073,15 +1074,15 @@ I (..\BSP\inc\bsp_tim.h)(0x5C0E8629)
 I (..\SYSTEM\delay\delay.h)(0x5BF42C9D)
 I (..\Driver\inc\driver_imu.h)(0x5BFD5ED1)
 I (..\Driver\inc\driver_cloudmotor.h)(0x5C9348AC)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\Driver\inc\driver_fricmotor.h)(0x5C95FE05)
 I (..\DMP\driver\eMPL\inv_mpu.h)(0x577640CF)
 I (..\DMP\driver\eMPL\inv_mpu_dmp_motion_driver.h)(0x5BDDCCB0)
 I (..\TASK\inc\task_led.h)(0x5C9381EF)
 I (..\TASK\inc\task_control.h)(0x5C95C304)
 I (..\TASK\inc\task_imu.h)(0x5C764003)
-I (..\TASK\inc\task_chassis.h)(0x5C9A5CEE)
-I (..\TASK\inc\task_gimbal.h)(0x5C9C8A6B)
+I (..\TASK\inc\task_chassis.h)(0x5CA05BEC)
+I (..\TASK\inc\task_gimbal.h)(0x5CA06583)
 F (..\TASK\src\task_led.c)(0x5C9381EF)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\task_led.o --omf_browse ..\obj\task_led.crf --depend ..\obj\task_led.d)
 I (..\TASK\inc\task_led.h)(0x5C9381EF)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
@@ -1183,10 +1184,10 @@ I (..\FreeRTOS\include\mpu_wrappers.h)(0x5B92F2C8)
 I (..\FreeRTOS\include\task.h)(0x5B92F9BF)
 I (..\FreeRTOS\include\list.h)(0x5B92F2C8)
 I (..\TASK\inc\task_led.h)(0x5C9381EF)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\Driver\inc\driver_fricmotor.h)(0x5C95FE05)
 I (..\Driver\inc\driver_dbus.h)(0x5C7B8C25)
-F (..\TASK\src\task_imu.c)(0x5C9C84F7)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\task_imu.o --omf_browse ..\obj\task_imu.crf --depend ..\obj\task_imu.d)
+F (..\TASK\src\task_imu.c)(0x5CA03E45)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\task_imu.o --omf_browse ..\obj\task_imu.crf --depend ..\obj\task_imu.d)
 I (..\TASK\inc\task_imu.h)(0x5C764003)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
@@ -1240,7 +1241,7 @@ I (..\SYSTEM\sys\sys.h)(0x5BF429C0)
 I (..\Driver\inc\driver_imu.h)(0x5BFD5ED1)
 I (..\DMP\driver\eMPL\inv_mpu.h)(0x577640CF)
 I (..\Driver\inc\driver_filter.h)(0x5C762D7B)
-F (..\TASK\src\task_chassis.c)(0x5C9A5A34)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\task_chassis.o --omf_browse ..\obj\task_chassis.crf --depend ..\obj\task_chassis.d)
+F (..\TASK\src\task_chassis.c)(0x5CA0759E)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\task_chassis.o --omf_browse ..\obj\task_chassis.crf --depend ..\obj\task_chassis.d)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x5B92F2C8)
 I (D:\MDK5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (D:\MDK5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -1252,7 +1253,7 @@ I (..\FreeRTOS\portable\RVDS\ARM_CM4F\portmacro.h)(0x5B92F2C9)
 I (..\FreeRTOS\include\mpu_wrappers.h)(0x5B92F2C8)
 I (..\FreeRTOS\include\task.h)(0x5B92F9BF)
 I (..\FreeRTOS\include\list.h)(0x5B92F2C8)
-I (..\TASK\inc\task_chassis.h)(0x5C9A5CEE)
+I (..\TASK\inc\task_chassis.h)(0x5CA05BEC)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
 I (..\CORE\core_cmInstr.h)(0x53C7D530)
@@ -1288,11 +1289,12 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\Driver\inc\driver_dbus.h)(0x5C7B8C25)
 I (..\TASK\inc\task_imu.h)(0x5C764003)
-F (..\TASK\src\task_gimbal.c)(0x5C9DA936)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\task_gimbal.o --omf_browse ..\obj\task_gimbal.crf --depend ..\obj\task_gimbal.d)
-I (..\TASK\inc\task_gimbal.h)(0x5C9C8A6B)
+I (D:\MDK5\ARM\ARMCC\include\math.h)(0x599ECD2E)
+F (..\TASK\src\task_gimbal.c)(0x5CA03D0E)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\task_gimbal.o --omf_browse ..\obj\task_gimbal.crf --depend ..\obj\task_gimbal.d)
+I (..\TASK\inc\task_gimbal.h)(0x5CA06583)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
 I (D:\MDK5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -1329,7 +1331,7 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x5B92F2C8)
 I (D:\MDK5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
 I (..\FreeRTOS\include\FreeRTOSConfig.h)(0x5C00F960)
@@ -1345,7 +1347,7 @@ I (..\TASK\inc\task_imu.h)(0x5C764003)
 I (..\TASK\inc\task_led.h)(0x5C9381EF)
 I (..\SYSTEM\delay\delay.h)(0x5BF42C9D)
 I (..\SYSTEM\sys\sys.h)(0x5BF429C0)
-I (..\Driver\inc\driver_dial.h)(0x5C96033C)
+I (..\Driver\inc\driver_dial.h)(0x5CA03A42)
 I (..\Driver\inc\driver_shoot.h)(0x5C9605C3)
 I (..\Driver\inc\driver_imu.h)(0x5BFD5ED1)
 I (..\DMP\driver\eMPL\inv_mpu.h)(0x577640CF)
@@ -1394,8 +1396,8 @@ I (..\Driver\inc\mpu6500_reg.h)(0x5B6A8CF9)
 I (..\SYSTEM\delay\delay.h)(0x5BF42C9D)
 I (..\SYSTEM\sys\sys.h)(0x5BF429C0)
 I (..\Driver\inc\driver_iic.h)(0x5BFE5FAB)
-F (..\Driver\src\driver_dial.c)(0x5C9DA947)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_dial.o --omf_browse ..\obj\driver_dial.crf --depend ..\obj\driver_dial.d)
-I (..\Driver\inc\driver_dial.h)(0x5C96033C)
+F (..\Driver\src\driver_dial.c)(0x5CA03D8C)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_dial.o --omf_browse ..\obj\driver_dial.crf --depend ..\obj\driver_dial.d)
+I (..\Driver\inc\driver_dial.h)(0x5CA03A42)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
 I (D:\MDK5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -1432,9 +1434,9 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\Driver\inc\driver_dbus.h)(0x5C7B8C25)
-F (..\Driver\src\driver_shoot.c)(0x5C9B4AFD)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_shoot.o --omf_browse ..\obj\driver_shoot.crf --depend ..\obj\driver_shoot.d)
+F (..\Driver\src\driver_shoot.c)(0x5CA03D5E)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_shoot.o --omf_browse ..\obj\driver_shoot.crf --depend ..\obj\driver_shoot.d)
 I (..\Driver\inc\driver_shoot.h)(0x5C9605C3)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
@@ -1473,7 +1475,8 @@ I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
 I (..\Driver\inc\driver_fricmotor.h)(0x5C95FE05)
-I (..\Driver\inc\driver_dial.h)(0x5C96033C)
+I (..\Driver\inc\driver_dial.h)(0x5CA03A42)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 F (..\Driver\src\driver_fricmotor.c)(0x5C98233F)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_fricmotor.o --omf_browse ..\obj\driver_fricmotor.crf --depend ..\obj\driver_fricmotor.d)
 I (..\Driver\inc\driver_fricmotor.h)(0x5C95FE05)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
@@ -1512,7 +1515,7 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\TASK\inc\task_led.h)(0x5C9381EF)
 I (..\FreeRTOS\include\FreeRTOS.h)(0x5B92F2C8)
 I (D:\MDK5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
@@ -1566,8 +1569,8 @@ I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
 I (..\SYSTEM\delay\delay.h)(0x5BF42C9D)
 I (..\SYSTEM\sys\sys.h)(0x5BF429C0)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
-I (..\TASK\inc\task_gimbal.h)(0x5C9C8A6B)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
+I (..\TASK\inc\task_gimbal.h)(0x5CA06583)
 F (..\Driver\src\driver_dbus.c)(0x5C7BA0A6)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_dbus.o --omf_browse ..\obj\driver_dbus.crf --depend ..\obj\driver_dbus.d)
 I (..\Driver\inc\driver_dbus.h)(0x5C7B8C25)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
@@ -1606,8 +1609,8 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
-F (..\Driver\src\driver_control.c)(0x5C990421)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_control.o --omf_browse ..\obj\driver_control.crf --depend ..\obj\driver_control.d)
-I (..\Driver\inc\driver_control.h)(0x5C9900C8)
+F (..\Driver\src\driver_control.c)(0x5CA06648)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_control.o --omf_browse ..\obj\driver_control.crf --depend ..\obj\driver_control.d)
+I (..\Driver\inc\driver_control.h)(0x5CA030FC)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)
 I (D:\MDK5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
@@ -1644,7 +1647,7 @@ I (..\FWLIB\inc\stm32f4xx_dcmi.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_dma2d.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_fmc.h)(0x53DBAFAD)
 I (..\FWLIB\inc\stm32f4xx_sai.h)(0x53DBAFAD)
-F (..\Driver\src\driver_edcoder.c)(0x5C7B8821)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_edcoder.o --omf_browse ..\obj\driver_edcoder.crf --depend ..\obj\driver_edcoder.d)
+F (..\Driver\src\driver_edcoder.c)(0x5CA02E35)(-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\SYSTEM\delay -I ..\SYSTEM\sys -I ..\SYSTEM\usart -I ..\FWLIB\STM32F4xx_StdPeriph_Driver\inc -I ..\USER -I ..\HARDWARE\LED -I ..\HARDWARE\BEEP -I ..\HARDWARE\KEY -I ..\FWLIB\inc -I ..\FreeRTOS\include -I ..\FreeRTOS\portable\RVDS\ARM_CM4F -I ..\BSP\inc -I ..\BSP\src -I ..\TASK\inc -I ..\TASK\src -I ..\Driver\inc -I ..\Driver\src -I ..\DMP\driver\eMPL -I ..\DMP\driver\include -I ..\DMP\driver\stm32L -I ..\DMP\eMPL-hal -I ..\DMP\mllite -I ..\DMP\mpl-I.\RTE\_infantry-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-ID:\MDK5\ARM\CMSIS\Include-ID:\MDK5\Keil\STM32F4xx_DFP\2.13.0\Device\Include-D__UVISION_VERSION="527" -DSTM32F427xx -DSTM32F427_437xx -DUSE_STDPERIPH_DRIVER -DMPU6500 -DEMPL_TARGET_STM32F4 -DMPL_LOG_NDEBUG="1" -DEMPL --C99-o ..\obj\driver_edcoder.o --omf_browse ..\obj\driver_edcoder.crf --depend ..\obj\driver_edcoder.d)
 I (..\Driver\inc\driver_encoder.h)(0x5C7B8822)
 I (..\USER\stm32f4xx.h)(0x58C2D44D)
 I (..\CORE\core_cm4.h)(0x53C7D530)

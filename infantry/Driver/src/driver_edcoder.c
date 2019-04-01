@@ -21,9 +21,11 @@ void encoder_data_handler(MotoMeasure_t* encoder, CanRxMsg * rcan)
 	{
 		encoder->ecd_current_value = encoder->ecd - encoder->last_ecd;
 	}
+	//拨盘电机的减速比是1:36
+	if(encoder->round_cnt == 36) encoder->round_cnt = 0;
 	
 	encoder->current_angle	= encoder->ecd / ENCODER_ANGLE_RATIO;//电机角度的当前值
-	encoder->total_ecd 		= encoder->round_cnt * 8192 + encoder->ecd - encoder->offset_ecd;
+	encoder->total_ecd 		= encoder->round_cnt * 8192 + encoder->ecd;
 	encoder->total_angle 	= encoder->total_ecd / ENCODER_ANGLE_RATIO;//电机角度总值
 
 	encoder->speed_rpm     = (int16_t)((rcan->Data[2]<<8) | rcan->Data[3]);

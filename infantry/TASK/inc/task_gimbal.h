@@ -19,10 +19,10 @@
 
 /*YAW-过程参数*/
 #define YAW_OUTER_P  -80
-#define YAW_OUTER_I  0
+#define YAW_OUTER_I  -0.1
 #define YAW_OUTER_D  0
-#define YAW_INNER_P  8
-#define YAW_INNER_I  0
+#define YAW_INNER_P  3
+#define YAW_INNER_I  0.1
 #define YAW_INNER_D  0
 #define YAW_OUTER_MAXOUT				 400
 #define YAW_OUTER_INTEGRATION_LIMIT		 100

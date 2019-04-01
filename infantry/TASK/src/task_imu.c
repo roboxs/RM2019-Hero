@@ -19,10 +19,8 @@ void imu_task(void *pvParameters)
 	//vTaskDelay(100);
 	BSP_IMU_Init();
 	//dmp初始化 灯灭之后MPU初始化完成
-	while(mpu_dmp_init())
-	{
-		LED1=0;
-	}
+	LED1=0;
+	while(mpu_dmp_init());
 	LED1=1;
 	
 	

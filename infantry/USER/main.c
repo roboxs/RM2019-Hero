@@ -30,7 +30,7 @@ void start_task(void *pvParameters)
 	
 //	xTaskCreate(led0_task,	  "led0_task",		128,	 NULL, 1, NULL);
 	
-//	xTaskCreate(imu_task, 	  "imu_task", 		256, 	 NULL, 2, NULL);
+	xTaskCreate(imu_task, 	  "imu_task", 		256, 	 NULL, 2, NULL);
 	
 //	xTaskCreate(control_task, "control_task", 	256, 	 NULL, 2, NULL);
 	

@@ -3,6 +3,7 @@
 #include <task_chassis.h>
 #include <driver_dbus.h>
 #include <task_imu.h>
+#include <math.h>
 
 ChassisMove_t g_chassis_move;
 
@@ -10,6 +11,8 @@ ChassisMove_t g_chassis_move;
 
 void chassis_task(void *pvParameters)
 {
+	//等待电机反转
+	vTaskDelay(900);
 	//底盘初始化
 	chassis_init(&g_chassis_move);
 	while(1)
@@ -17,39 +20,59 @@ void chassis_task(void *pvParameters)
 		//底盘数据更新
 		chassis_updata_data(&g_chassis_move);
 		//底盘速度设置
-		chassis_set_speed(&g_chassis_move);
+		chassis_set_target(&g_chassis_move);
 		//底盘PID计算
 		chassis_pid_calculate(&g_chassis_move);
 		/*英雄 左前-左后-右前-右后 ID 1-2-3-4*/
 		control_chassis_motor(g_chassis_move.chassis_motor[0].give_current,g_chassis_move.chassis_motor[1].give_current,
 							  g_chassis_move.chassis_motor[2].give_current,g_chassis_move.chassis_motor[3].give_current);
-		
 		vTaskDelay(CHASSIS_TASK_CYCLE);
 	}
 }
 
-static void chassis_set_speed(ChassisMove_t * chassis_move)
+static void chassis_set_target(ChassisMove_t * chassis_move)
 {
-	chassis_move->chassis_mode = RC_Ctl.rc.s2;
-	//如果是遥控模式
-	if(chassis_move->chassis_mode == CHASSIS_RC_MODE)
+	//设置当前遥控的模式
+	switch(RC_Ctl.rc.s2)
 	{
-		chassis_move->vx_target=RC_Ctl.rc.ch3*3;
-		chassis_move->vy_target=RC_Ctl.rc.ch2*3;
-		chassis_move->vw_target=RC_Ctl.rc.ch0*2;
+		case 1:
+			chassis_move->chassis_mode = CHASSIS_NO_FOLLOW_GIMBAL;
+			break;
+		case 3:
+			chassis_move->chassis_mode = CHASSIS_FOLLOW_GIMBAL;
+			break;
+		case 2:
+			chassis_move->chassis_mode = CHASSIS_ROCK;
 	}
-	//如果是键鼠模式
-	else if(chassis_move->chassis_mode == CHASSIS_KEYBOARD_MODE)
+//	//如果是遥控模式
+//	if(chassis_move->chassis_mode == CHASSIS_RC_MODE)
+//	{
+//		chassis_move->vx_target=RC_Ctl.rc.ch3*3;
+//		chassis_move->vy_target=RC_Ctl.rc.ch2*3;
+//		chassis_move->vw_target=RC_Ctl.rc.ch0*2;
+//	}
+//	//如果是键鼠模式
+//	else if(chassis_move->chassis_mode == CHASSIS_KEYBOARD_MODE)
+//	{
+//		
+//	}
+	switch(chassis_move->chassis_mode)
 	{
-		
+		case CHASSIS_NO_FOLLOW_GIMBAL:
+			chassis_move->vx_target = RC_Ctl.rc.ch3*3;
+			chassis_move->vy_target=RC_Ctl.rc.ch2*3;
+			chassis_move->vw_target=RC_Ctl.rc.ch0*2;
+			break;
+		case CHASSIS_FOLLOW_GIMBAL:
+			break;
+		case CHASSIS_ROCK:
+			;
 	}
 }
 
 static void chassis_init(ChassisMove_t *chassis_move)
 {
 	unsigned char i;
-	//遥控模式
-	chassis_move->chassis_mode = RC_Ctl.rc.s2;
 	//底盘PID初始化
 	for(i=0; i<4; i++)
 	{
@@ -60,7 +83,9 @@ static void chassis_init(ChassisMove_t *chassis_move)
 					CHASSIS_VX_KP, CHASSIS_VX_KI, CHASSIS_VX_KD);
 	pid_struct_init(&chassis_move->chassis_vy_pid, POSITION_PID, SPEED_LOOP, CHASSIS_VY_MAX_PID_OUTER, CHASSIS_VY_OUTER_INTEGRATION_LIMIT, 
 					CHASSIS_VY_KP, CHASSIS_VY_KI, CHASSIS_VY_KD);
-	//
+	//初始化底盘旋转PID
+	pid_struct_init(&chassis_move->chassis_vw_pid, POSITION_PID, ANGLE_LOOP, CHASSIS_VW_MAX_PID_OUTER, CHASSIS_VW_OUTER_INTEGRATION_LIMIT, 
+					CHASSIS_VW_KP, CHASSIS_VW_KI, CHASSIS_VW_KD);
 }
 
 static void chassis_updata_data(ChassisMove_t *chassis_update)

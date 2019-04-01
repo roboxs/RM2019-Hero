@@ -3,52 +3,15 @@
 
 #define ABS(x)   (((x) > 0)?(x):(-x))
 
-/*拨盘电机-2006*/
-const float DIAL_2006_OUTER_P = 8;
-const float DIAL_2006_OUTER_I = 0;
-const float DIAL_2006_OUTER_D = 0;
-const float DIAL_2006_INNER_P = 800;
-const float DIAL_2006_INNER_I = 0.5;
-const float DIAL_2006_INNER_D = 0;
-const float DIAL_2006_OUTER_MAXOUT				= 10000;
-const float DIAL_2006_OUTER_INTEGRATION_LIMIT	= 5000;
-const float DIAL_2006_INNER_MAXOUT				= 15000;
-const float DIAL_2006_INNER_INTEGRATION_LIMIT	= 5000;
-
-/*拨盘电机-3510*/
-const float DIAL_3510_OUTER_P = 8;
-const float DIAL_3510_OUTER_I = 0;
-const float DIAL_3510_OUTER_D = 0;
-const float DIAL_3510_INNER_P = 3; 
-const float DIAL_3510_INNER_I = 0.1;
-const float DIAL_3510_INNER_D = 0;
-const float DIAL_3510_OUTER_MAXOUT				= 10000;
-const float DIAL_3510_OUTER_INTEGRATION_LIMIT	= 5000;
-const float DIAL_3510_INNER_MAXOUT				= 5000;
-const float DIAL_3510_INNER_INTEGRATION_LIMIT	= 2000;
 
 
 
-pid_t g_dial_2006_pid_inner, g_dial_2006_pid_outer;
-pid_t g_dial_3510_pid_inner, g_dial_3510_pid_outer;
+
 
 
 void pid_init_all(void)
-{
-
-	
-	
-/*dial-2006-outer*/		pid_struct_init(&g_dial_2006_pid_outer, POSITION_PID, SPEED_LOOP, DIAL_2006_OUTER_MAXOUT, DIAL_2006_OUTER_INTEGRATION_LIMIT,
-					 DIAL_2006_OUTER_P, DIAL_2006_OUTER_I, DIAL_2006_OUTER_D);
-/*dial-2006-inner*/		pid_struct_init(&g_dial_2006_pid_inner, POSITION_PID, SPEED_LOOP, DIAL_2006_INNER_MAXOUT, DIAL_2006_INNER_INTEGRATION_LIMIT,
-					 DIAL_2006_INNER_P, DIAL_2006_INNER_I ,DIAL_2006_INNER_D);
-	
-/*dial-3510-outer*/		pid_struct_init(&g_dial_3510_pid_outer, POSITION_PID, SPEED_LOOP, DIAL_3510_OUTER_MAXOUT, DIAL_3510_OUTER_INTEGRATION_LIMIT,
-					 DIAL_3510_OUTER_P, DIAL_3510_OUTER_I, DIAL_3510_OUTER_D);
-/*dial-3510-inner*/		pid_struct_init(&g_dial_3510_pid_inner, POSITION_PID, SPEED_LOOP, DIAL_3510_INNER_MAXOUT, DIAL_3510_INNER_INTEGRATION_LIMIT,
-					 DIAL_3510_INNER_P, DIAL_3510_INNER_I, DIAL_3510_INNER_D);	
-					
-	
+{				
+	;
 }
 
 
@@ -79,7 +42,7 @@ void dead_limit(float *object, float dead_lim)
 
 /****
     *@brief 变积分
-    *@param[in] object      对象（误差）
+    *@param[in] 当前积分值  误差值 积分结构体
     *@param[in] 
     */
 float integral_separation(float *integral, float *err, pid_integral_t *integral_sep)
@@ -102,7 +65,8 @@ float integral_separation(float *integral, float *err, pid_integral_t *integral_
 
 /****
 	*@brief 抗积分饱和
-	*@param
+	*@param[in] 当前积分值 误差 积分结构体
+	*@param[out] 积分结构体的参数
 	*/
 
 float anti_windup(float *measure, float *integral, float *err, pid_integral_t * integral_anti)

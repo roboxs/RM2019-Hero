@@ -4,6 +4,7 @@ void BSP_GPIO_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
+	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA,ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB,ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD,ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOG,ENABLE);
@@ -92,4 +93,14 @@ void BSP_GPIO_Init(void)
 	GPIO_InitStructure.GPIO_Speed	= GPIO_Speed_100MHz;
 	GPIO_Init(GPIOH,&GPIO_InitStructure);
 	GPIO_SetBits(GPIOH,GPIO_Pin_2|GPIO_Pin_4);//关闭LED灯
+	
+	//直流电机编码器
+	GPIO_InitStructure.GPIO_Mode	= GPIO_Mode_AF;
+	GPIO_InitStructure.GPIO_OType	= GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_Pin		= GPIO_Pin_0|GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_PuPd	= GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_Speed	= GPIO_High_Speed;
+	GPIO_Init(GPIOA,&GPIO_InitStructure);
+	GPIO_PinAFConfig(GPIOA,GPIO_PinSource0,GPIO_AF_TIM2);
+	GPIO_PinAFConfig(GPIOA,GPIO_PinSource1,GPIO_AF_TIM2);
 }

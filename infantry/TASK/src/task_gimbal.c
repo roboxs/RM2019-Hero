@@ -22,6 +22,8 @@ float yaw_test_kp=0, yaw_test_ki=0, yaw_test_kd=0;
 
 void gimbal_task(void *pvParameters)
 {
+	//等待电机反转
+	vTaskDelay(900);
 	//云台的初始化
 	gimbal_init(&g_gimbal_control);
 	shoot_init();
@@ -45,7 +47,7 @@ void gimbal_task(void *pvParameters)
 							 0, 0);
 #else 
 		control_gimbal_motor(0, g_gimbal_control.motor_pitch.give_cuttent,
-							 g_dial_3510_pid_inner.pos_out, g_dial_2006_pid_inner.pos_out);
+							 0, g_dial_2006_motor.give_current);
 #endif
 		
 		//修改PID参数

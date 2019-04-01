@@ -7,6 +7,8 @@ RampStr_t fric_ramp1,fric_ramp2;
 int count_t=0;
 void shoot_init(void)
 {
+	//拨盘电机初始化
+	dial_init();
 	ramp_init(&fric_ramp1, FRICMOTOR_MAX_SPEED, FRICMOTOR_MIN_SPEED, FRICMOTOR_PERIOD);
 	ramp_init(&fric_ramp2, FRICMOTOR_MAX_SPEED, FRICMOTOR_MIN_SPEED, FRICMOTOR_PERIOD);
 }

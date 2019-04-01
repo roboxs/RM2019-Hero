@@ -58,3 +58,4 @@
 ..\obj\stm32f4xx_it.o: ..\TASK\inc\task_gimbal.h
 ..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_dbus.h
 ..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_encoder.h
+..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_dial.h

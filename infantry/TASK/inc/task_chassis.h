@@ -7,6 +7,7 @@
 #define CHASSIS_TASK_CYCLE 2 //底盘任务周期2ms
 #define CHASSIS_MAX_SPEED 3000
 
+/*底盘移动PID初始化*/
 #define CHASSIS_PID_KP 4
 #define CHASSIS_PID_KI 30
 #define CHASSIS_PID_KD 0
@@ -24,6 +25,13 @@
 #define CHASSIS_VY_KD 0
 #define CHASSIS_VY_MAX_PID_OUTER 3000
 #define CHASSIS_VY_OUTER_INTEGRATION_LIMIT 5000
+
+/*底盘旋转PID初始化*/
+#define CHASSIS_VW_KP 40
+#define CHASSIS_VW_KI 0.1
+#define CHASSIS_VW_KD 0
+#define CHASSIS_VW_MAX_PID_OUTER 100
+#define CHASSIS_VW_OUTER_INTEGRATION_LIMIT 400
 
 
 typedef struct
@@ -58,10 +66,17 @@ enum
 	CHASSIS_KEYBOARD_MODE=0x02,
 };
 
+enum
+{
+	CHASSIS_NO_FOLLOW_GIMBAL=1, //底盘不跟随云台
+	CHASSIS_FOLLOW_GIMBAL=2,//底盘跟随云台
+	CHASSIS_ROCK=3,//云台固定,底盘摇摆
+};
+
 void chassis_task(void *pvParameters);
 static void abs_limit(float *object, float abs_max);
 static void chassis_init(ChassisMove_t *chassis_move);
-static void chassis_set_speed(ChassisMove_t * chassis_move);
+static void chassis_set_target(ChassisMove_t * chassis_move);
 static void mecanum_calculate(float vx,float vy,float vw, short *speed);
 static void chassis_updata_data(ChassisMove_t *chassis_updata);
 static void chassis_pid_calculate(ChassisMove_t *chassis_move);
