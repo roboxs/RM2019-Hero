@@ -34,7 +34,7 @@ void start_task(void *pvParameters)
 	
 //	xTaskCreate(control_task, "control_task", 	256, 	 NULL, 2, NULL);
 	
-//	xTaskCreate(chassis_task, "chassis_task", 	256, 	 NULL, 3, NULL);
+	xTaskCreate(chassis_task, "chassis_task", 	256, 	 NULL, 3, NULL);
 	
 	xTaskCreate(gimbal_task, "gimbal_task", 	256, 	 NULL, 3, NULL);
 	

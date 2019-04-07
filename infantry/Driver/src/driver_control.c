@@ -1,9 +1,5 @@
 #include <driver_control.h>
-
-
-#define ABS(x)   (((x) > 0)?(x):(-x))
-
-
+#include <user_math.h>
 
 
 

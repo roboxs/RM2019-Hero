@@ -7,17 +7,18 @@
 #define DIAL_2006_SPEED 2000
 #define DIAL_3510_SPEED 1500
 //将2006编码器的值转化成角度值 (10/8191)
-#define MOTOR_ECD_TO_DEG 0.00122085215480405322915394945672f
+//#define MOTOR_ECD_TO_DEG 0.00122085215480405322915394945672f
+#define MOTOR_ECD_TO_DEG 0.00231319355647083769734432528642f
 
 /*拨盘电机-2006*/
-#define DIAL_2006_OUTER_P  8
+#define DIAL_2006_OUTER_P  50
 #define DIAL_2006_OUTER_I  0
 #define DIAL_2006_OUTER_D  0
 #define DIAL_2006_INNER_P  800
 #define DIAL_2006_INNER_I  0.5
 #define DIAL_2006_INNER_D  0
-#define DIAL_2006_OUTER_MAXOUT				 10000
-#define DIAL_2006_OUTER_INTEGRATION_LIMIT	 5000
+#define DIAL_2006_OUTER_MAXOUT				 400
+#define DIAL_2006_OUTER_INTEGRATION_LIMIT	 400
 #define DIAL_2006_INNER_MAXOUT				 15000
 #define DIAL_2006_INNER_INTEGRATION_LIMIT	 5000
 
@@ -42,10 +43,12 @@ enum
 
 typedef struct
 {
-	int8_t singel_ready_flag;//单发发射准备标志位
+	int8_t single_ready_flag;//单发发射准备标志位
+	int8_t over_zero_flag;	//过零处理标志位
 	float current_round;//当前编码器的圈数
 	float cuttent_ecd;//当前编码器的值
 	float give_current;
+	float last_angle_target;//上次设置的角度值
 	
 	pid_t moto_speed_pid;
 	pid_t moto_angle_pid;

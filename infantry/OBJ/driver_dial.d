@@ -39,3 +39,4 @@
 ..\obj\driver_dial.o: ..\FWLIB\inc\stm32f4xx_sai.h
 ..\obj\driver_dial.o: ..\Driver\inc\driver_control.h
 ..\obj\driver_dial.o: ..\Driver\inc\driver_dbus.h
+..\obj\driver_dial.o: ..\MATH\user_math.h

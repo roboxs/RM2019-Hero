@@ -17,11 +17,11 @@ void BSP_GPIO_Init(void)
 	//LED0,1,2(PG1,2,3)
 	GPIO_InitStructure.GPIO_Mode	= GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType	= GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Pin		= GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3;
+	GPIO_InitStructure.GPIO_Pin		= GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6;
 	GPIO_InitStructure.GPIO_PuPd	= GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Speed	= GPIO_Speed_100MHz;
 	GPIO_Init(GPIOG,&GPIO_InitStructure);
-	GPIO_SetBits(GPIOG,GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3);//关闭LED灯	
+	GPIO_SetBits(GPIOG,GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6);//关闭LED灯	
 	
 	//USART1(DBUS)
 	GPIO_InitStructure.GPIO_Pin 	= GPIO_Pin_7 ;
@@ -94,13 +94,23 @@ void BSP_GPIO_Init(void)
 	GPIO_Init(GPIOH,&GPIO_InitStructure);
 	GPIO_SetBits(GPIOH,GPIO_Pin_2|GPIO_Pin_4);//关闭LED灯
 	
-	//直流电机编码器
-	GPIO_InitStructure.GPIO_Mode	= GPIO_Mode_AF;
-	GPIO_InitStructure.GPIO_OType	= GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Pin		= GPIO_Pin_0|GPIO_Pin_1;
-	GPIO_InitStructure.GPIO_PuPd	= GPIO_PuPd_NOPULL;
-	GPIO_InitStructure.GPIO_Speed	= GPIO_High_Speed;
-	GPIO_Init(GPIOA,&GPIO_InitStructure);
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource0,GPIO_AF_TIM2);
-	GPIO_PinAFConfig(GPIOA,GPIO_PinSource1,GPIO_AF_TIM2);
+//	//直流电机编码器 TIM2_OC1/OC2
+//	GPIO_InitStructure.GPIO_Mode	= GPIO_Mode_AF;
+//	GPIO_InitStructure.GPIO_OType	= GPIO_OType_PP;
+//	GPIO_InitStructure.GPIO_Pin		= GPIO_Pin_0|GPIO_Pin_1;
+//	GPIO_InitStructure.GPIO_PuPd	= GPIO_PuPd_NOPULL;
+//	GPIO_InitStructure.GPIO_Speed	= GPIO_High_Speed;
+//	GPIO_Init(GPIOA,&GPIO_InitStructure);
+//	GPIO_PinAFConfig(GPIOA,GPIO_PinSource0,GPIO_AF_TIM2);
+//	GPIO_PinAFConfig(GPIOA,GPIO_PinSource1,GPIO_AF_TIM2);
+//	
+//	//直流电机编码器 TIM8_OC1/OC2
+//	GPIO_InitStructure.GPIO_Mode	= GPIO_Mode_AF;
+//	GPIO_InitStructure.GPIO_OType	= GPIO_OType_PP;
+//	GPIO_InitStructure.GPIO_Pin		= GPIO_Pin_5|GPIO_Pin_6;
+//	GPIO_InitStructure.GPIO_PuPd	= GPIO_PuPd_NOPULL;
+//	GPIO_InitStructure.GPIO_Speed	= GPIO_High_Speed;
+//	GPIO_Init(GPIOI,&GPIO_InitStructure);
+//	GPIO_PinAFConfig(GPIOI,GPIO_PinSource5,GPIO_AF_TIM8);
+//	GPIO_PinAFConfig(GPIOI,GPIO_PinSource6,GPIO_AF_TIM8);
 }

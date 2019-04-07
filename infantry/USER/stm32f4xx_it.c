@@ -211,8 +211,9 @@ void USART6_IRQHandler(void)
 	u8 i=0;
 	if(USART_GetITStatus(USART6,USART_IT_IDLE))
 	{
+		//清除中断标志位
 		data=USART6->SR;
-		data=USART6->DR;//清除中断标志位
+		data=USART6->DR;
 		
 		DMA_Cmd(DMA2_Stream2,DISABLE);//防止传输数据
 		USART6_RXCnt=RECEIVE_BUF_SIZE-DMA_GetCurrDataCounter(DMA2_Stream2);//总的缓存大小减去剩余缓存大小
@@ -227,7 +228,7 @@ void USART6_IRQHandler(void)
 //		data_judge();
 		USART6_DMA_SendData(i);
 		DMA_Cmd(DMA2_Stream2,ENABLE);
-		LED1=!LED1;
+		LED4=!LED4;
 	}
 }
 
@@ -343,11 +344,13 @@ void CAN1_RX0_IRQHandler(void)
 		{
 			encoder_data_handler(&moto_2006_dial,&g_can1_receive_str);
 			g_dial_2006_motor.moto_speed_pid.measure=moto_2006_dial.speed_rpm;
-			g_dial_2006_motor.moto_angle_pid.measure=moto_2006_dial.current_angle;
 			//2006电机圈数,最多36圈
+			if(moto_2006_dial.round_cnt == 19) moto_2006_dial.round_cnt =0;
 			g_dial_2006_motor.current_round = moto_2006_dial.round_cnt;
 			//2006电机当前的编码器值
 			g_dial_2006_motor.cuttent_ecd = moto_2006_dial.ecd;
+			//2006电机输出轴角度的计算
+			g_dial_2006_motor.moto_angle_pid.measure = (g_dial_2006_motor.current_round * 8191 + g_dial_2006_motor.cuttent_ecd) * MOTOR_ECD_TO_DEG;
 		}break;
 		default:
 			printf("No feedback speed\r\n");
@@ -373,4 +376,17 @@ void CAN2_RX1_IRQHandler(void)
 	for(i=0;i<ReceiveStr.DLC;i++)
 	CAN2_ReceiveBuffer[i]=ReceiveStr.Data[i];
 }
+
+/*********************************************************************************************
+ *********************************************************************************************/
+
+//void TIM2_IRQHandler(void)
+//{
+//	//如果产生更新中断 也即定时器溢出
+//	if(TIM_GetITStatus(TIM2,TIM_IT_Update))
+//	{
+//		TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
+//	}
+//}
+
 

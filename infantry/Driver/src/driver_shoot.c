@@ -17,10 +17,10 @@ void shoot_control(void)
 {
 	dial_pid_calculate();
 	
-	ramp_calculate(& fric_ramp1, FRICMOTOR_LOW_SPEED);
+	ramp_calculate(& fric_ramp1, FRICMOTOR_HIGH_SPEED);
 	if(fric_ramp1.out >= fric_ramp1.max)
 	{
-		ramp_calculate(& fric_ramp2, FRICMOTOR_LOW_SPEED);
+		ramp_calculate(& fric_ramp2, FRICMOTOR_HIGH_SPEED);
 	}
 	
 	fricmotor_on(fric_ramp1.out , fric_ramp2.out);

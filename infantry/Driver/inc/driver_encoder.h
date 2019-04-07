@@ -3,8 +3,8 @@
 
 #include <stm32f4xx.h>
 
-
-#define ENCODER_ANGLE_RATIO    (8192.0f/360.0f)
+//将编码器的值转化成角度值
+#define ENCODER_ECD_TO_DEG    (0.04395067757294591624954218044195f)
 
 
 typedef struct

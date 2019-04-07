@@ -61,6 +61,7 @@
 "..\obj\start_manager.o"
 "..\obj\storage_manager.o"
 "..\DMP\mpl\libmpllib.lib"
+"..\obj\user_math.o"
 --strict --scatter "..\OBJ\infantry.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
