@@ -173,11 +173,14 @@ void DebugMon_Handler(void)
 #include <task_imu.h>
 #include <task_chassis.h>
 #include <task_gimbal.h>
+#include <task_vision.h>
 
 #include <driver_dbus.h>
 #include <driver_encoder.h>
 #include <driver_control.h>
 #include <driver_dial.h>
+#include <driver_judge.h>
+#include <user_math.h>
 
 
 /*********************************************************************************************
@@ -216,16 +219,16 @@ void USART6_IRQHandler(void)
 		data=USART6->DR;
 		
 		DMA_Cmd(DMA2_Stream2,DISABLE);//防止传输数据
-		USART6_RXCnt=RECEIVE_BUF_SIZE-DMA_GetCurrDataCounter(DMA2_Stream2);//总的缓存大小减去剩余缓存大小
-		DMA_SetCurrDataCounter(DMA2_Stream2,RECEIVE_BUF_SIZE);//重新设置DMA的大小
+		USART6_RXCnt=DMA_JUDGE_RECEIVE_BUF_SIZE-DMA_GetCurrDataCounter(DMA2_Stream2);//总的缓存大小减去剩余缓存大小
+		DMA_SetCurrDataCounter(DMA2_Stream2,DMA_JUDGE_RECEIVE_BUF_SIZE);//重新设置DMA的大小
 		DMA_ClearFlag(DMA2_Stream2,DMA_FLAG_TCIF2|DMA_FLAG_FEIF2|DMA_FLAG_DMEIF2
 															|DMA_FLAG_TEIF2|DMA_FLAG_HTIF2);//清除LISR和HISR寄存器
-		while(USART6_RXCnt--)
-		{
-			g_send_buff[i]=g_receive_buff[i];
-			i++;
-		}
-//		data_judge();
+//		while(USART6_RXCnt--)
+//		{
+//			g_dma_judge_send_buff[i]=g_dma_judge_receive_buff[i];
+//			i++;
+//		}
+		data_judge();
 		USART6_DMA_SendData(i);
 		DMA_Cmd(DMA2_Stream2,ENABLE);
 		LED4=!LED4;
@@ -269,10 +272,11 @@ void DMA2_Stream5_IRQHandler(void)
  *********************************************************************************************/
 
 CanRxMsg g_can1_receive_str;
+CanRxMsg g_can2_receive_str;
 
 MotoMeasure_t moto_yaw;
 MotoMeasure_t moto_pitch;
-MotoMeasure_t moto_2006_dial,moto_3510_dial;
+MotoMeasure_t moto_2006_dial1,moto_2006_dial2;
 MotoMeasure_t moto_chassis[4];
 
 
@@ -319,74 +323,109 @@ void CAN1_RX0_IRQHandler(void)
 		case 0x205:
 		{
 			encoder_data_handler(&moto_yaw,&g_can1_receive_str);
-			g_gimbal_control.motor_yaw.speed_measuer = g_cloud_gyroscope.gz;
-			g_gimbal_control.motor_yaw.angle_measure = moto_yaw.current_angle;
+			g_gimbal_control.motor_yaw.speed_measure = g_cloud_gyroscope.gz;
+			g_chassis_move.chassis_angle_pid.measure = moto_yaw.current_angle;
+			//云台初始化完成时,用陀螺仪的角度
+			if(g_gimbal_control.init_finish_flag == 1) 
+			{
+				g_gimbal_control.motor_yaw.angle_measure = g_cloud_gyroscope.real_yaw;
+			}
+			else//初始化完成之前
+			{
+				g_gimbal_control.motor_yaw.angle_measure = moto_yaw.current_angle;
+			}
 		}break;
 		
 		
 		case 0x206: 
 		{
 			encoder_data_handler(&moto_pitch,&g_can1_receive_str);
-			g_gimbal_control.motor_pitch.speed_measuer = g_cloud_gyroscope.gx;
-			g_gimbal_control.motor_pitch.angle_measure = moto_pitch.current_angle;
+			if( (ABS(moto_pitch.last_ecd - moto_pitch.ecd) > 400) && moto_pitch.last_ecd)//数据错误
+			{
+				moto_pitch.ecd = moto_pitch.last_ecd;
+			}
+			g_gimbal_control.motor_pitch.speed_measure = g_cloud_gyroscope.gx;
+			g_gimbal_control.motor_pitch.angle_measure = moto_pitch.ecd * ENCODER_ECD_TO_DEG;
 			
 		}break;
 		
 		
 		case 0x207:
 		{
-			encoder_data_handler(&moto_3510_dial,&g_can1_receive_str);
-//			g_dial_3510_pid_inner.measure=moto_3510_dial.speed_rpm;
-//			g_dial_3510_pid_outer.measure=moto_3510_dial.current_angle;
-		}break;
-	
-		case 0x208:
-		{
-			encoder_data_handler(&moto_2006_dial,&g_can1_receive_str);
-			g_dial_2006_motor.moto_speed_pid.measure=moto_2006_dial.speed_rpm;
+			encoder_data_handler(&moto_2006_dial1,&g_can1_receive_str);
+			/*后面2006电机*/
+			g_dial_2006_motor.moto_speed_pid.measure=moto_2006_dial1.speed_rpm;
 			//2006电机圈数,最多36圈
-			if(moto_2006_dial.round_cnt == 19) moto_2006_dial.round_cnt =0;
-			g_dial_2006_motor.current_round = moto_2006_dial.round_cnt;
-			//2006电机当前的编码器值
-			g_dial_2006_motor.cuttent_ecd = moto_2006_dial.ecd;
+			if(moto_2006_dial1.round_cnt == 36) moto_2006_dial1.round_cnt =0;
 			//2006电机输出轴角度的计算
-			g_dial_2006_motor.moto_angle_pid.measure = (g_dial_2006_motor.current_round * 8191 + g_dial_2006_motor.cuttent_ecd) * MOTOR_ECD_TO_DEG;
+			g_dial_2006_motor.moto_angle_pid.measure = (moto_2006_dial1.round_cnt * 8191 + moto_2006_dial1.ecd) * MOTOR_ECD_TO_DEG;
 		}break;
+		
 		default:
-			printf("No feedback speed\r\n");
+		{
+			break;
+		}
 	}
-//	for(i=0;i<CAN1_ReceiveStr.DLC;i++)
-//	CAN1_ReceiveBuffer[i]=CAN1_ReceiveStr.Data[i];
-	
-//	printf("%d\r\n",(g_can1_receive_str.Data[0]<<8)|g_can1_receive_str.Data[1]);
-//	printf("%d\r\n",(g_can1_receive_str.Data[2]<<8)|g_can1_receive_str.Data[3]);
-//	printf("%d\r\n",(CAN1_ReceiveStr.Data[4]<<8)|CAN1_ReceiveStr.Data[5]);
 }
 
 /*********************************************************************************************
  *********************************************************************************************/
 
-u8 CAN2_ReceiveBuffer[64];
 
 void CAN2_RX1_IRQHandler(void)
 {
-	u8 i;
-	CanRxMsg ReceiveStr;
-	CAN_Receive(CAN2,CAN_FIFO1,&ReceiveStr);	
-	for(i=0;i<ReceiveStr.DLC;i++)
-	CAN2_ReceiveBuffer[i]=ReceiveStr.Data[i];
+	CAN_Receive(CAN2,CAN_FIFO1,&g_can2_receive_str);
+	switch(g_can2_receive_str.StdId)
+	{
+		case 0x201:
+		{
+			encoder_data_handler(&moto_2006_dial2, &g_can2_receive_str);
+			g_dial_2006_motor_assist.moto_speed_pid.measure=moto_2006_dial2.speed_rpm;
+			//2006电机圈数,最多36圈
+			if(moto_2006_dial2.round_cnt == 36) moto_2006_dial2.round_cnt =0;
+			//2006电机输出轴角度的计算
+			g_dial_2006_motor_assist.moto_angle_pid.measure = (moto_2006_dial2.round_cnt * 8191 + moto_2006_dial2.ecd) * MOTOR_ECD_TO_DEG;
+		}
+	}
 }
 
 /*********************************************************************************************
- *********************************************************************************************/
+ ***********************************视觉中断数据处理******************************************/
 
-//void TIM2_IRQHandler(void)
-//{
-//	//如果产生更新中断 也即定时器溢出
-//	if(TIM_GetITStatus(TIM2,TIM_IT_Update))
-//	{
-//		TIM_ClearITPendingBit(TIM2,TIM_IT_Update);
-//	}
-//}
+void UART8_IRQHandler()
+{
+//	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+	u16 rxcount;
+	u8 clear;
+	
+	if(USART_GetITStatus(UART8,USART_IT_IDLE)!=RESET)
+	{
+		DMA_Cmd(DMA1_Stream6, DISABLE); 
+		clear=UART8->SR;
+		clear=UART8->DR;
+		rxcount=DMA_MINIPC_REVE_BUFF_SIZE-DMA_GetCurrDataCounter(DMA1_Stream6);//当前占用DMA的字节数
+		
+		while (DMA_GetCmdStatus(DMA1_Stream6));   
+		DMA_SetCurrDataCounter(DMA1_Stream6,DMA_MINIPC_REVE_BUFF_SIZE);
+		DMA_ClearFlag(DMA1_Stream6,DMA_FLAG_TCIF6|DMA_FLAG_HTIF6|DMA_FLAG_TEIF6|DMA_FLAG_DMEIF6|DMA_FLAG_FEIF6); 
+		DMA_Cmd(DMA1_Stream6, ENABLE);
+		
+//		 vTaskNotifyGiveFromISR(xHandleTaskPCParse, &xHigherPriorityTaskWoken);
+//		portYIELD_FROM_ISR( xHigherPriorityTaskWoken );		
+	}
+}
+
+
+//MINIPC发送
+void DMA1_Stream0_IRQHandler(void)  
+{  
+    if(DMA_GetITStatus(DMA1_Stream0,DMA_IT_TCIF0)!=RESET)
+    {   
+        DMA_ClearITPendingBit(DMA1_Stream0, DMA_IT_TCIF0);
+        DMA_Cmd(DMA1_Stream0, DISABLE); 
+    }  
+
+} 
+
 
 

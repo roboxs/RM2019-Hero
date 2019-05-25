@@ -40,4 +40,5 @@
 ..\obj\driver_cloudmotor.o: ..\SYSTEM\delay\delay.h
 ..\obj\driver_cloudmotor.o: ..\SYSTEM\sys\sys.h
 ..\obj\driver_cloudmotor.o: ..\Driver\inc\driver_control.h
+..\obj\driver_cloudmotor.o: ..\Driver\inc\driver_filter.h
 ..\obj\driver_cloudmotor.o: ..\TASK\inc\task_gimbal.h

@@ -2,7 +2,7 @@
 #define _DRIVER_CONTROL_H
 
 #include <stm32f4xx.h>
-
+#include <driver_filter.h>
 
 
 /****************************PID结构体*************************************/
@@ -48,7 +48,9 @@ typedef struct __pid_t
     
     float pout;							
     float iout;							
-    float dout;							
+    float dout;		
+	float dout_lpf;				//低通滤波后的微分项
+	Butter_BufferData bufferdata;//低通滤波的数据保存
 	
 	float integ;				//积分
 	float deriv;				//微分
@@ -103,7 +105,6 @@ void pid_reset(pid_t	*pid, float kp, float ki, float kd);
 
 
 /*******************************PID变量声明***************************************/
-
 
 	
 #endif

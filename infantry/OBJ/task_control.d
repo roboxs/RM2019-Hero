@@ -39,6 +39,8 @@
 ..\obj\task_control.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 ..\obj\task_control.o: ..\FWLIB\inc\stm32f4xx_sai.h
 ..\obj\task_control.o: ..\TASK\inc\task_control.h
+..\obj\task_control.o: ..\Driver\inc\driver_control.h
+..\obj\task_control.o: ..\Driver\inc\driver_filter.h
 ..\obj\task_control.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\task_control.o: D:\MDK5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\task_control.o: ..\FreeRTOS\include\FreeRTOSConfig.h
@@ -50,6 +52,6 @@
 ..\obj\task_control.o: ..\FreeRTOS\include\task.h
 ..\obj\task_control.o: ..\FreeRTOS\include\list.h
 ..\obj\task_control.o: ..\TASK\inc\task_led.h
-..\obj\task_control.o: ..\Driver\inc\driver_control.h
-..\obj\task_control.o: ..\Driver\inc\driver_fricmotor.h
 ..\obj\task_control.o: ..\Driver\inc\driver_dbus.h
+..\obj\task_control.o: ..\Driver\inc\driver_dial.h
+..\obj\task_control.o: ..\MATH\user_math.h

@@ -9,18 +9,9 @@
 volatile unsigned char g_sbus_rx_buffer[25];//遥控接受到数据
 RC_Ctl_t RC_Ctl;
 
-/**
- * 
- * @brief 遥控模式
- *
- */
-void remote_control(void)
-{
-	;
-}
 
-void mousekey_control(void)
+//返回遥控器指针
+const RC_Ctl_t *get_remote_control_point(void)
 {
-	;
+    return &RC_Ctl;
 }
-

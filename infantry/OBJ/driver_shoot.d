@@ -37,6 +37,10 @@
 ..\obj\driver_shoot.o: ..\FWLIB\inc\stm32f4xx_dma2d.h
 ..\obj\driver_shoot.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 ..\obj\driver_shoot.o: ..\FWLIB\inc\stm32f4xx_sai.h
+..\obj\driver_shoot.o: ..\TASK\inc\task_gimbal.h
+..\obj\driver_shoot.o: ..\Driver\inc\driver_control.h
+..\obj\driver_shoot.o: ..\Driver\inc\driver_filter.h
 ..\obj\driver_shoot.o: ..\Driver\inc\driver_fricmotor.h
 ..\obj\driver_shoot.o: ..\Driver\inc\driver_dial.h
-..\obj\driver_shoot.o: ..\Driver\inc\driver_control.h
+..\obj\driver_shoot.o: ..\SYSTEM\sys\sys.h
+..\obj\driver_shoot.o: ..\Driver\inc\driver_dbus.h

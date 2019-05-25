@@ -38,6 +38,7 @@
 ..\obj\driver_fricmotor.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 ..\obj\driver_fricmotor.o: ..\FWLIB\inc\stm32f4xx_sai.h
 ..\obj\driver_fricmotor.o: ..\Driver\inc\driver_control.h
+..\obj\driver_fricmotor.o: ..\Driver\inc\driver_filter.h
 ..\obj\driver_fricmotor.o: ..\TASK\inc\task_led.h
 ..\obj\driver_fricmotor.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\driver_fricmotor.o: D:\MDK5\ARM\ARMCC\Bin\..\include\stddef.h

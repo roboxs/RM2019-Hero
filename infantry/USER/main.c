@@ -30,13 +30,15 @@ void start_task(void *pvParameters)
 	
 //	xTaskCreate(led0_task,	  "led0_task",		128,	 NULL, 1, NULL);
 	
-	xTaskCreate(imu_task, 	  "imu_task", 		256, 	 NULL, 2, NULL);
+	xTaskCreate(imu_task, 	  "imu_task", 		256, 	 NULL, 1, NULL);
 	
-//	xTaskCreate(control_task, "control_task", 	256, 	 NULL, 2, NULL);
+	xTaskCreate(control_task, "control_task", 	256, 	 NULL, 1, NULL);
 	
-	xTaskCreate(chassis_task, "chassis_task", 	256, 	 NULL, 3, NULL);
+	xTaskCreate(chassis_task, "chassis_task", 	256, 	 NULL, 2, NULL);
 	
 	xTaskCreate(gimbal_task, "gimbal_task", 	256, 	 NULL, 3, NULL);
+	
+	xTaskCreate(vision_task, "vision_task", 	128, 	 NULL, 3, &xHandleTaskPCParse);
 	
     vTaskDelete(g_start_task_handler);
     taskEXIT_CRITICAL();            

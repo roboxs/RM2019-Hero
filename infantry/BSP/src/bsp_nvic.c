@@ -45,4 +45,19 @@ void BSP_NVIC_Init(void)
 	NVIC_Structure.NVIC_IRQChannelSubPriority = 0;
 	NVIC_Init(&NVIC_Structure);
 	CAN_ITConfig(CAN2,CAN_IT_FMP1,ENABLE);//FIFO 1消息挂起中断
+	
+	//UART8 MiniPC USART接收
+    NVIC_Structure.NVIC_IRQChannel                    = UART8_IRQn;
+	NVIC_Structure.NVIC_IRQChannelPreemptionPriority  = 3;
+	NVIC_Structure.NVIC_IRQChannelCmd                 = ENABLE;			
+	NVIC_Init(&NVIC_Structure);	
+    USART_ITConfig(UART8, USART_IT_IDLE, ENABLE);
+    
+    //UART8 MiniPC DMA发送
+    NVIC_Structure.NVIC_IRQChannel                     = DMA1_Stream0_IRQn;
+    NVIC_Structure.NVIC_IRQChannelCmd                  = ENABLE;
+    NVIC_Structure.NVIC_IRQChannelPreemptionPriority   = 8;
+    NVIC_Init(&NVIC_Structure);
+    DMA_ClearITPendingBit(DMA1_Stream0, DMA_IT_TCIF7);
+    DMA_ITConfig(DMA1_Stream0,DMA_IT_TC,ENABLE);
 }

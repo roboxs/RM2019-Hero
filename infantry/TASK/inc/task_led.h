@@ -16,8 +16,6 @@
 #define LED7 PGout(7)
 #define LED8 PGout(8)
 
-#define POWER_CLAMP_CTRL PHout(4) //¼ÐÈ¡
-#define POWER_PUSH_CTRL  PHout(2) //ÍÆ½ø
 
 void led0_task(void *pvParameters);
 void led1_task(void *pvParameters);

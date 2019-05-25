@@ -37,4 +37,5 @@
 ..\obj\driver_control.o: ..\FWLIB\inc\stm32f4xx_dma2d.h
 ..\obj\driver_control.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 ..\obj\driver_control.o: ..\FWLIB\inc\stm32f4xx_sai.h
+..\obj\driver_control.o: ..\Driver\inc\driver_filter.h
 ..\obj\driver_control.o: ..\MATH\user_math.h

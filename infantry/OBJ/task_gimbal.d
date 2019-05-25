@@ -38,6 +38,7 @@
 ..\obj\task_gimbal.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 ..\obj\task_gimbal.o: ..\FWLIB\inc\stm32f4xx_sai.h
 ..\obj\task_gimbal.o: ..\Driver\inc\driver_control.h
+..\obj\task_gimbal.o: ..\Driver\inc\driver_filter.h
 ..\obj\task_gimbal.o: ..\FreeRTOS\include\FreeRTOS.h
 ..\obj\task_gimbal.o: D:\MDK5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\obj\task_gimbal.o: ..\FreeRTOS\include\FreeRTOSConfig.h
@@ -55,6 +56,6 @@
 ..\obj\task_gimbal.o: ..\SYSTEM\sys\sys.h
 ..\obj\task_gimbal.o: ..\Driver\inc\driver_dial.h
 ..\obj\task_gimbal.o: ..\Driver\inc\driver_shoot.h
-..\obj\task_gimbal.o: ..\Driver\inc\driver_imu.h
-..\obj\task_gimbal.o: ..\DMP\driver\eMPL\inv_mpu.h
-..\obj\task_gimbal.o: ..\Driver\inc\mpu6500_reg.h
+..\obj\task_gimbal.o: ..\TASK\inc\task_chassis.h
+..\obj\task_gimbal.o: ..\MATH\user_math.h
+..\obj\task_gimbal.o: ..\TASK\inc\task_vision.h

@@ -23,6 +23,7 @@
 #include <driver_cloudmotor.h>
 #include <driver_control.h>
 #include <driver_fricmotor.h>
+#include <driver_dial.h>
 /*DMP*/
 #include <inv_mpu.h>
 #include <inv_mpu_dmp_motion_driver.h>
@@ -32,6 +33,7 @@
 #include <task_imu.h>
 #include <task_chassis.h>
 #include <task_gimbal.h>
+#include <task_vision.h>
 
 void system_init(void);
 

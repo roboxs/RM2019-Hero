@@ -59,7 +59,9 @@
 ..\obj\main.o: ..\Driver\inc\driver_imu.h
 ..\obj\main.o: ..\Driver\inc\driver_cloudmotor.h
 ..\obj\main.o: ..\Driver\inc\driver_control.h
+..\obj\main.o: ..\Driver\inc\driver_filter.h
 ..\obj\main.o: ..\Driver\inc\driver_fricmotor.h
+..\obj\main.o: ..\Driver\inc\driver_dial.h
 ..\obj\main.o: ..\DMP\driver\eMPL\inv_mpu.h
 ..\obj\main.o: ..\DMP\driver\eMPL\inv_mpu_dmp_motion_driver.h
 ..\obj\main.o: ..\TASK\inc\task_led.h
@@ -67,3 +69,4 @@
 ..\obj\main.o: ..\TASK\inc\task_imu.h
 ..\obj\main.o: ..\TASK\inc\task_chassis.h
 ..\obj\main.o: ..\TASK\inc\task_gimbal.h
+..\obj\main.o: ..\TASK\inc\task_vision.h

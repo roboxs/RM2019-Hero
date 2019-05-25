@@ -735,6 +735,7 @@ int mpu_init(struct int_param_s *int_param)
 
     /* Reset device. */
     data[0] = BIT_RESET;
+	
     if (i2c_write(st.hw->addr, st.reg->pwr_mgmt_1, 1, data))
         return -1;
     delay_ms(100);
@@ -3305,15 +3306,6 @@ lp_int_restore:
 //////////////////////////////////////////////////////////////////////////////////
 //添加的代码部分
 //////////////////////////////////////////////////////////////////////////////////	  
-//ALIENTEK STM32F746开发板
-//MPU9250 DMP 驱动代码	   
-//正点原子@ALIENTEK
-//技术论坛:www.openedv.com
-//创建日期:2015/12/30
-//版本：V1.0 
-//Copyright(C) 广州市星翼电子科技有限公司 2014-2024
-//All rights reserved									  
-////////////////////////////////////////////////////////////////////////////////// 
 
 //q30，q16格式,long转float时的除数.
 #define q30  1073741824.0f
@@ -3323,10 +3315,7 @@ lp_int_restore:
 static signed char gyro_orientation[9] = { 1, 0, 0,
                                            0, 1, 0,
                                            0, 0, 1};
-//磁力计方向设置
-static signed char comp_orientation[9] = { 0, 1, 0,
-                                           1, 0, 0,
-                                           0, 0,-1};
+
 //MPU9250自测试
 //返回值:0,正常
 //    其他,失败
@@ -3397,7 +3386,6 @@ u8 mpu_dmp_init(void)
     unsigned short gyro_rate, gyro_fsr;
     unsigned short compass_fsr;
     
-	//IIC_Init(); 		        //初始化IIC总线
 	if(mpu_init(&int_param)==0)	//初始化MPU9250
 	{	 
         res=inv_init_mpl();     //初始化MPL
@@ -3417,21 +3405,19 @@ u8 mpu_dmp_init(void)
 		if(res)return 3; 
 		res=mpu_set_sample_rate(DEFAULT_MPU_HZ);	            //设置采样率
 		if(res)return 4; 
-        //res=mpu_set_compass_sample_rate(1000/COMPASS_READ_MS);  //设置磁力计采样率
-        if(res)return 5;
+
         mpu_get_sample_rate(&gyro_rate);
         mpu_get_gyro_fsr(&gyro_fsr);
         mpu_get_accel_fsr(&accel_fsr);
-//        mpu_get_compass_fsr(&compass_fsr);
+
         inv_set_gyro_sample_rate(1000000L/gyro_rate);
         inv_set_accel_sample_rate(1000000L/gyro_rate);
-//        inv_set_compass_sample_rate(COMPASS_READ_MS*1000L);
+		
         inv_set_gyro_orientation_and_scale(
             inv_orientation_matrix_to_scalar(gyro_orientation),(long)gyro_fsr<<15);
         inv_set_accel_orientation_and_scale(
             inv_orientation_matrix_to_scalar(gyro_orientation),(long)accel_fsr<<15);
-//        inv_set_compass_orientation_and_scale(
-//            inv_orientation_matrix_to_scalar(comp_orientation),(long)compass_fsr<<15);
+
             
             
 		res=dmp_load_motion_driver_firmware();		             //加载dmp固件
@@ -3447,7 +3433,9 @@ u8 mpu_dmp_init(void)
 		res=run_self_test();		//自检
 		if(res)return 10;    
 		res=mpu_set_dmp_state(1);	//使能DMP
-		if(res)return 11;     
+		if(res)return 11;   
+
+
 	}
 	return 0;
 }
@@ -3519,14 +3507,6 @@ u8 mpu_mpl_get_data(float *pitch,float *roll,float *yaw)
         accel[1] = (long)accel_short[1];
         accel[2] = (long)accel_short[2];
         inv_build_accel(accel,0,sensor_timestamp);      //把加速度值发给MPL
-    }
-    
-    if (!mpu_get_compass_reg(compass_short, &sensor_timestamp)) 
-    {
-        compass[0]=(long)compass_short[0];
-        compass[1]=(long)compass_short[1];
-        compass[2]=(long)compass_short[2];
-        inv_build_compass(compass,0,sensor_timestamp); //把磁力计值发给MPL
     }
     inv_execute_on_data();
     inv_get_sensor_type_euler(data,&accuracy,&timestamp);

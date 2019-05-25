@@ -48,6 +48,8 @@
 ..\obj\task_chassis.o: ..\FWLIB\inc\stm32f4xx_fmc.h
 ..\obj\task_chassis.o: ..\FWLIB\inc\stm32f4xx_sai.h
 ..\obj\task_chassis.o: ..\Driver\inc\driver_control.h
+..\obj\task_chassis.o: ..\Driver\inc\driver_filter.h
+..\obj\task_chassis.o: ..\TASK\inc\task_gimbal.h
 ..\obj\task_chassis.o: ..\Driver\inc\driver_dbus.h
 ..\obj\task_chassis.o: ..\TASK\inc\task_imu.h
-..\obj\task_chassis.o: D:\MDK5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\task_chassis.o: ..\MATH\user_math.h

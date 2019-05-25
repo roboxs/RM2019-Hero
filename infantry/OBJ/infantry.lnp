@@ -36,6 +36,7 @@
 "..\obj\task_imu.o"
 "..\obj\task_chassis.o"
 "..\obj\task_gimbal.o"
+"..\obj\task_vision.o"
 "..\obj\driver_judge.o"
 "..\obj\driver_imu.o"
 "..\obj\driver_dial.o"
@@ -47,6 +48,8 @@
 "..\obj\driver_edcoder.o"
 "..\obj\driver_filter.o"
 "..\obj\driver_iic.o"
+"..\obj\driver_crc.o"
+"..\obj\user_math.o"
 "..\obj\inv_mpu.o"
 "..\obj\inv_mpu_dmp_motion_driver.o"
 "..\obj\log_stm32.o"
@@ -61,7 +64,6 @@
 "..\obj\start_manager.o"
 "..\obj\storage_manager.o"
 "..\DMP\mpl\libmpllib.lib"
-"..\obj\user_math.o"
 --strict --scatter "..\OBJ\infantry.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

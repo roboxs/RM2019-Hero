@@ -1,5 +1,6 @@
 #include <driver_control.h>
 #include <user_math.h>
+#include <driver_filter.h>
 
 
 
@@ -7,6 +8,8 @@
 
 void pid_init_all(void)
 {				
+//	pid_struct_init(&push_motor_speed, POSITION_PID, SPEED_LOOP, PUSH_MOTOR_SPEED_MAXOUT, PUSH_MOTOR_SPEED_INTEGRATION_LIMIT,
+//		PUSH_MOTOR_P, PUSH_MOTOR_I, PUSH_MOTOR_D);
 	;
 }
 
@@ -32,16 +35,35 @@ void abs_limit(float *object, float abs_max)
     */
 void dead_limit(float *object, float dead_lim)
 {
-	if(((*object>0)?(*object):(-*object)) < dead_lim)  *object = 0;
-		else *object=*object;
+	if(ABS(*object) < dead_lim)  *object = 0;
+		else *object = *object;
+}
+/****
+    *@brief 积分分离
+    *@param[in] 当前积分值  误差值 积分结构体
+    *@param[in] 
+    */
+
+float integral_separation(float *integral, float *err, pid_integral_t* integral_sep)
+{
+	if(ABS(*err) > integral_sep->err_min)
+	{
+		integral_sep->param = 0;
+	}
+	else 
+	{
+		integral_sep->param = 1;
+		*integral += (*err);
+	}
+	return integral_sep->param;
 }
 
 /****
     *@brief 变积分
     *@param[in] 当前积分值  误差值 积分结构体
     *@param[in] 
-    */
-float integral_separation(float *integral, float *err, pid_integral_t *integral_sep)
+    */ 
+float integral_alter(float *integral, float *err, pid_integral_t* integral_sep)
 {
 	float index=0.0;
 	if( (ABS(*err) ) > integral_sep->err_max)  index =0.0;
@@ -177,16 +199,22 @@ float pid_calculate(pid_t * pidInner,pid_t * pidOuter)
 			
 		/*****************************  角度外环  *****************************/
 		pidOuter->err[NOW] = pidOuter->target - pidOuter->measure;	 //当前角度误差
+//		dead_limit(&(pidOuter->err[NOW]),DEADBAND);								 //死区限制
 			
-			//dead_limit(&(pidOuter->err[NOW]),DEADBAND);								 //死区限制
-			
-		pidOuter->pout  = pidOuter->p *  pidOuter->err[NOW];				 //比例输出
-		pidOuter->iout += pidOuter->i  *  pidOuter->err[NOW];
-		//index = integral_separation(&pidOuter->iout,&pidOuter->err[NOW]);
-		pidOuter->dout  = pidOuter->d * (pidOuter->err[NOW]-pidOuter->err[LAST]);
-			
+		pidOuter->pout  = pidOuter->p *  pidOuter->err[NOW];
+		
+		//积分项处理
+		if(pidOuter->integral.err_min == 0)	
+			pidOuter->iout += pidOuter->err[NOW];
+		else 	
+			integral_separation(&pidOuter->iout,&pidOuter->err[NOW], &(pidOuter->integral));
+		//微分项处理
+		pidOuter->dout  = (pidOuter->err[NOW]-pidOuter->err[LAST]);//原始微分项
+		pidOuter->dout_lpf = Control_Device_LPF(pidOuter->dout,&pidOuter->bufferdata,&Control_Device_Div_LPF_Parameter);//20hz巴特沃斯低通滤波
+		//积分限幅
 		abs_limit(&(pidOuter->iout),pidOuter->IntegralLimit);
-		pidOuter->pos_out = (pidOuter->pout +  pidOuter->iout + pidOuter->dout);
+		pidOuter->pos_out = (pidOuter->pout +   pidOuter->i * pidOuter->iout + pidOuter->d * pidOuter->dout_lpf);
+		//总输出限幅
 		abs_limit(&(pidOuter->pos_out),pidOuter->MaxOutput);
 			
 		pidOuter->err[LAST]=pidOuter->err[NOW];
@@ -200,12 +228,16 @@ float pid_calculate(pid_t * pidInner,pid_t * pidOuter)
 		{
 			pidInner->err[NOW] = pidInner->target - pidInner->measure;	 //当前速度误差值
 		}
+		//死区限制
+		if(pidInner->deadband != RESET)		dead_limit(&(pidInner->err[NOW]),pidInner->deadband);
 		pidInner->pout  = pidInner->p *  pidInner->err[NOW];			 //比例输出
-		pidInner->iout += pidInner->i *  pidInner->err[NOW];		 	 //微分输出
-		pidInner->dout  = pidInner->d * (pidInner->err[NOW]-pidInner->err[LAST]);//积分输出
-			
+		pidInner->iout += pidInner->i *  pidInner->err[NOW];		 	 //积分输出
+		//微分项进行处理
+		pidInner->dout  =(pidInner->err[NOW]-pidInner->err[LAST]);		 //微分输出
+		pidInner->dout_lpf = Control_Device_LPF(pidInner->dout,&pidInner->bufferdata,&Control_Device_Div_LPF_Parameter);//20hz巴特沃斯低通滤波
+		
 		abs_limit(&(pidInner->iout),pidInner->IntegralLimit);		//积分限幅
-		pidInner->pos_out = (pidInner->pout + pidInner->iout + pidInner->dout);	//位置式PID输出
+		pidInner->pos_out = (pidInner->pout + pidInner->iout + pidInner->d * pidInner->dout);	//位置式PID输出
 		abs_limit(&(pidInner->pos_out),pidInner->MaxOutput);		//位置式PID输出限幅
 			
 		pidInner->err[LAST]=pidInner->err[NOW];

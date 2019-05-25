@@ -9,6 +9,10 @@ typedef struct
 	float pitch;
 	float yaw;
 	float roll;
+	float last_deal_yaw;
+	float deal_yaw;
+	float real_yaw;
+	float rount;
 	
 	short gx;
 	short gy;

@@ -53,3 +53,6 @@
 ..\obj\task_imu.o: ..\Driver\inc\driver_imu.h
 ..\obj\task_imu.o: ..\DMP\driver\eMPL\inv_mpu.h
 ..\obj\task_imu.o: ..\Driver\inc\driver_filter.h
+..\obj\task_imu.o: ..\TASK\inc\task_vision.h
+..\obj\task_imu.o: ..\TASK\inc\task_gimbal.h
+..\obj\task_imu.o: ..\Driver\inc\driver_control.h

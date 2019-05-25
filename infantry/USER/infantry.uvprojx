@@ -597,6 +597,11 @@
               <FileType>1</FileType>
               <FilePath>..\TASK\src\task_gimbal.c</FilePath>
             </File>
+            <File>
+              <FileName>task_vision.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TASK\src\task_vision.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -656,6 +661,21 @@
               <FileName>driver_iic.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Driver\src\driver_iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>driver_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\src\driver_crc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MATH</GroupName>
+          <Files>
+            <File>
+              <FileName>user_math.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MATH\user_math.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -731,16 +751,6 @@
               <FileName>libmpllib.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\DMP\mpl\libmpllib.lib</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>MATH</GroupName>
-          <Files>
-            <File>
-              <FileName>user_math.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\MATH\user_math.c</FilePath>
             </File>
           </Files>
         </Group>

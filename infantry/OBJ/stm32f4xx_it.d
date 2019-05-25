@@ -55,7 +55,12 @@
 ..\obj\stm32f4xx_it.o: ..\TASK\inc\task_imu.h
 ..\obj\stm32f4xx_it.o: ..\TASK\inc\task_chassis.h
 ..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_control.h
+..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_filter.h
 ..\obj\stm32f4xx_it.o: ..\TASK\inc\task_gimbal.h
+..\obj\stm32f4xx_it.o: ..\TASK\inc\task_vision.h
 ..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_dbus.h
 ..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_encoder.h
 ..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_dial.h
+..\obj\stm32f4xx_it.o: ..\Driver\inc\driver_judge.h
+..\obj\stm32f4xx_it.o: D:\MDK5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\stm32f4xx_it.o: ..\MATH\user_math.h

@@ -9,8 +9,25 @@ typedef struct{
 }Filter_t;
 
 
-double Chebyshev50HzLPF(Filter_t *F);
+typedef struct
+{
+ float Input_Butter[3];
+ float Output_Butter[3];
+}Butter_BufferData;
 
+
+typedef struct
+{
+ const float a[3];
+ const float b[3];
+}Butter_Parameter;
+
+double Chebyshev50HzLPF(Filter_t *F);
+float Control_Device_LPF(float curr_inputer,Butter_BufferData *Buffer,Butter_Parameter *Parameter);
+
+
+//±äÁ¿ÉùÃ÷
+extern Butter_Parameter Control_Device_Div_LPF_Parameter;
 
 #endif
 

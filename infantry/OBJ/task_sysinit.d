@@ -59,7 +59,9 @@
 ..\obj\task_sysinit.o: ..\Driver\inc\driver_imu.h
 ..\obj\task_sysinit.o: ..\Driver\inc\driver_cloudmotor.h
 ..\obj\task_sysinit.o: ..\Driver\inc\driver_control.h
+..\obj\task_sysinit.o: ..\Driver\inc\driver_filter.h
 ..\obj\task_sysinit.o: ..\Driver\inc\driver_fricmotor.h
+..\obj\task_sysinit.o: ..\Driver\inc\driver_dial.h
 ..\obj\task_sysinit.o: ..\DMP\driver\eMPL\inv_mpu.h
 ..\obj\task_sysinit.o: ..\DMP\driver\eMPL\inv_mpu_dmp_motion_driver.h
 ..\obj\task_sysinit.o: ..\TASK\inc\task_led.h
@@ -67,3 +69,4 @@
 ..\obj\task_sysinit.o: ..\TASK\inc\task_imu.h
 ..\obj\task_sysinit.o: ..\TASK\inc\task_chassis.h
 ..\obj\task_sysinit.o: ..\TASK\inc\task_gimbal.h
+..\obj\task_sysinit.o: ..\TASK\inc\task_vision.h
